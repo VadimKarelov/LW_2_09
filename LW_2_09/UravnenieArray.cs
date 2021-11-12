@@ -109,5 +109,15 @@ namespace LW_2_09
                 return null;
             }
         }
+
+        public int GetCounter()
+        {
+            return counter;
+        }
+
+        public int GetSize()
+        {
+            return size;
+        }
     }
 }

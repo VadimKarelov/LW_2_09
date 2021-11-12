@@ -283,9 +283,63 @@ namespace LW_2_09Tests
 
         // === uravnenie array ===
         [TestMethod]
-        public void TestArrayConstructor()
+        public void TestArrayConstructorWithInt()
         {
+            UravnenieArray t = new(5);
 
+            Assert.AreEqual(5, t.GetSize());
+        }
+
+        [TestMethod]
+        public void TestArrayConstructorWithArray()
+        {
+            double[][] data= { new double[]{ 5, 1, 1 }, new double[]{ 4, 8, 4 } };
+            UravnenieArray t = new(data);
+
+            Assert.AreEqual(2, t.GetSize());
+        }
+
+        [TestMethod]
+        public void TestGetIndexator()
+        {
+            double[][] data = { new double[] { 5, 1, 1 }, new double[] { 4, 1, 4 } };
+            UravnenieArray t = new(data);
+
+            Uravnenie expected = new(5, 1, 1);
+
+            Assert.IsTrue(AreUravneniasEqual(expected, t[0]));
+        }
+
+        [TestMethod]
+        public void TestSetIndexator()
+        {
+            UravnenieArray t = new(10);
+            Uravnenie t2 = new(5, 1, 1);
+
+            t[6] = t2;
+
+            Assert.IsTrue(AreUravneniasEqual(t2, t[6]));
+        }
+
+        [TestMethod]
+        public void TestFindMaxSolution()
+        {
+            double[][] data = { new double[] { 5, 1, 1 }, new double[] { 4, 8, 4 } };
+            UravnenieArray t = new(data);
+
+            Uravnenie expected = new(4, 8, 4);
+
+            Assert.IsTrue(AreUravneniasEqual(expected, t.FindMaxAbsoluteSolution()));
+        }
+
+        [TestMethod]
+        public void TestGetSize()
+        {
+            UravnenieArray t = new(5);
+
+            int expected = 5;
+
+            Assert.AreEqual(expected, t.GetSize());
         }
     }
 }
