@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_09
 {
-    class UravnenieArray
+    public class UravnenieArray
     {
         private static Random rn = new();
         private static int counter = 0;
@@ -108,6 +108,16 @@ namespace LW_2_09
             {
                 return null;
             }
+        }
+
+        public int GetCounter()
+        {
+            return counter;
+        }
+
+        public int GetSize()
+        {
+            return size;
         }
     }
 }

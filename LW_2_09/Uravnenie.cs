@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_09
 {
-    class Uravnenie
+    public class Uravnenie
     {
         public double A { get; set; }
         public double B { get; set; }
@@ -38,8 +38,23 @@ namespace LW_2_09
             {
                 if (D == 0)
                 {
-                    double[] res = { (-B + Math.Sqrt(D)) / 2 / A };
-                    return res;
+                    if (A == 0 && B == 0)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        if (A != 0 && B == 0 && C == 0)
+                        {
+                            double[] res = { Math.Sqrt(A), -Math.Sqrt(A) };
+                            return res;
+                        }
+                        else
+                        {
+                            double[] res = { (-B + Math.Sqrt(D)) / 2 / A };
+                            return res;
+                        }
+                    }
                 }
                 else if (A != 0)
                 {
@@ -72,8 +87,23 @@ namespace LW_2_09
             {
                 if (D == 0)
                 {
-                    double[] res = { (-kb + Math.Sqrt(D)) / 2 / ka };
-                    return res;
+                    if (ka == 0 && kb == 0)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        if (ka != 0 && kb == 0 && kc == 0)
+                        {
+                            double[] res = { Math.Sqrt(ka), -Math.Sqrt(ka) };
+                            return res;
+                        }
+                        else
+                        {
+                            double[] res = { (-kb + Math.Sqrt(D)) / 2 / ka };
+                            return res;
+                        }                        
+                    }
                 }
                 else if (ka != 0)
                 {
@@ -167,7 +197,7 @@ namespace LW_2_09
 
         public static bool operator !=(Uravnenie ur1, Uravnenie ur2)
         {
-            return ur1.A != ur2.A && ur1.B != ur2.B && ur1.C != ur2.C;
+            return ur1.A != ur2.A || ur1.B != ur2.B || ur1.C != ur2.C;
         }
     }
 }

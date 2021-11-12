@@ -49,7 +49,7 @@ namespace LW_2_09
             PrintSolution(ur1.Solution());
 
             double t1 = (double)ur1;
-            Console.WriteLine("Неявное привидение к double = " + t1);
+            Console.WriteLine("Явное привидение к double = " + t1);
             bool t2 = ur1;
             Console.WriteLine("Неявное привидение к bool = " + t2);
 
