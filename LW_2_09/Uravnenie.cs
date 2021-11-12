@@ -197,7 +197,7 @@ namespace LW_2_09
 
         public static bool operator !=(Uravnenie ur1, Uravnenie ur2)
         {
-            return ur1.A != ur2.A && ur1.B != ur2.B && ur1.C != ur2.C;
+            return ur1.A != ur2.A || ur1.B != ur2.B || ur1.C != ur2.C;
         }
     }
 }

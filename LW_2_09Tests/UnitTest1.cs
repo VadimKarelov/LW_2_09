@@ -12,7 +12,7 @@ namespace LW_2_09Tests
         {
             Uravnenie t = new(-5, 7, 1);
 
-            Assert.AreEqual(t, new Uravnenie(-5, 7, 1));
+            Assert.IsTrue(AreUravneniasEqual(t, new Uravnenie(-5, 7, 1)));
         }
 
         // non static
@@ -187,6 +187,98 @@ namespace LW_2_09Tests
             {
                 return false;
             }
+        }
+
+        //
+        [TestMethod]
+        public void TestOutput()
+        {
+            Uravnenie t = new(-5, 7, 1);
+
+            Assert.AreEqual("-5x^2+7x+1=0", t.ToString());
+        }
+
+        // inc dec
+        [TestMethod]
+        public void Increment()
+        {
+            Uravnenie t = new(-5, 7, 1);
+            Uravnenie expected = new(-4, 8, 2);
+            t++;
+
+            Assert.IsTrue(AreUravneniasEqual(expected, t));
+        }
+
+        [TestMethod]
+        public void Decrement()
+        {
+            Uravnenie t = new(-5, 7, 1);
+            Uravnenie expected = new(-6, 6, 0);
+            t--;
+
+            Assert.IsTrue(AreUravneniasEqual(expected, t));
+        }
+
+        private bool AreUravneniasEqual(Uravnenie t1, Uravnenie t2)
+        {
+            return t1.ToString() == t2.ToString();
+        }
+
+        // == !=
+        [TestMethod]
+        public void Equal1()
+        {
+            Uravnenie t1 = new(-5, 7, 1);
+            Uravnenie t2 = new(-5, 7, 1);
+
+            Assert.IsTrue(t1 == t2);
+        }
+
+        [TestMethod]
+        public void NotEqual1()
+        {
+            Uravnenie t1 = new(-5, 7, 1);
+            Uravnenie t2 = new(-5, 8, 1);
+
+            Assert.IsFalse(t1 == t2);
+        }
+
+        [TestMethod]
+        public void Equal2()
+        {
+            Uravnenie t1 = new(-5, 7, 1);
+            Uravnenie t2 = new(-5, 8, 1);
+
+            Assert.IsTrue(t1 != t2);
+        }
+
+        [TestMethod]
+        public void NotEqual2()
+        {
+            Uravnenie t1 = new(-5, 7, 1);
+            Uravnenie t2 = new(-5, 7, 1);
+
+            Assert.IsFalse(t1 != t2);
+        }
+
+        // type to other type
+        [TestMethod]
+        public void ToDouble()
+        {
+            Uravnenie t = new(4, 0, -4);
+            double expected = 1;
+
+            Assert.AreEqual(expected, (double)t);
+        }
+
+        [TestMethod]
+        public void ToBool()
+        {
+            Uravnenie t = new(4, 0, -4);
+            bool t2 = t;
+            bool expected = true;
+
+            Assert.AreEqual(expected, t2);
         }
     }
 }
