@@ -280,5 +280,12 @@ namespace LW_2_09Tests
 
             Assert.AreEqual(expected, t2);
         }
+
+        // === uravnenie array ===
+        [TestMethod]
+        public void TestArrayConstructor()
+        {
+
+        }
     }
 }
