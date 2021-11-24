@@ -80,36 +80,6 @@ namespace LW_2_09
             return res;
         }
 
-        public Uravnenie FindMaxAbsoluteSolution()
-        {
-            if (array != null && array.Length > 0)
-            {
-                Uravnenie maxUr = null;
-                double maxSol = 0;
-                for (int i = 0; i < size; i++)
-                {
-                    double[] sol = array[i].Solution();
-                    if (sol != null)
-                    {
-                        for (int j = 0; j < sol.Length; j++)
-                        {
-                            if (Math.Abs(sol[j]) > maxSol)
-                            {
-                                maxUr = array[i];
-                                maxSol = Math.Abs(sol[j]);
-                            }
-                        }
-                    }
-                }
-
-                return maxUr;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
         public int GetCounter()
         {
             return counter;
