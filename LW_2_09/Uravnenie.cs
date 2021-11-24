@@ -63,15 +63,8 @@ namespace LW_2_09
                 }
                 else
                 {
-                    if (B != 0)
-                    {
-                        double[] res = { -C / B };
-                        return res;
-                    }
-                    else
-                    {
-                        return null;
-                    }
+                    double[] res = { -C / B };
+                    return res;
                 }
             }
         }
@@ -111,16 +104,9 @@ namespace LW_2_09
                     return res;
                 }
                 else
-                {
-                    if (kb != 0)
-                    {
-                        double[] res = { -kc / kb };
-                        return res;
-                    }
-                    else
-                    {
-                        return null;
-                    }
+                {                    
+                    double[] res = { -kc / kb };
+                    return res;                    
                 }
             }
         }

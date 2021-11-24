@@ -77,7 +77,7 @@ namespace LW_2_09
 
             Console.WriteLine("3-й элемент 2-го массива = " + ar2[2]);
 
-            Console.WriteLine($"Уравнение с максимальным решением в 3-ем массиве = {ar3.FindMaxAbsoluteSolution()}");
+            Console.WriteLine($"Уравнение с максимальным решением в 3-ем массиве = {FindMaxAbsoluteSolution(ar3)}");
         }
 
         static void PrintSolution(double[] sol)
@@ -92,6 +92,36 @@ namespace LW_2_09
             else
             {
                 Console.WriteLine("Решений нет");
+            }
+        }
+
+        static Uravnenie FindMaxAbsoluteSolution(UravnenieArray arr)
+        {
+            if (arr != null && arr.GetSize() > 0)
+            {
+                Uravnenie maxUr = null;
+                double maxSol = 0;
+                for (int i = 0; i < arr.GetSize(); i++)
+                {
+                    double[] sol = arr[i].Solution();
+                    if (sol != null)
+                    {
+                        for (int j = 0; j < sol.Length; j++)
+                        {
+                            if (Math.Abs(sol[j]) > maxSol)
+                            {
+                                maxUr = arr[i];
+                                maxSol = Math.Abs(sol[j]);
+                            }
+                        }
+                    }
+                }
+
+                return maxUr;
+            }
+            else
+            {
+                return null;
             }
         }
     }
